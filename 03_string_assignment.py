@@ -57,7 +57,7 @@ print(x)
 # Question 7: Check if "python" is in "Python Programming Language"
 print("\nQuestion 7: Check if 'python' is in 'Python Programming Language'")
 # Your code here
-print('python' in 'Python Programming Language')
+print('Python' in 'Python Programming Language')
 
 # Question 8: Extract the first 5 characters from "Artificial Intelligence"
 print("\nQuestion 8: Extract the first 5 characters from 'Artificial Intelligence'")
@@ -188,18 +188,19 @@ print(str.isalpha())
 # Question 23: Convert "hello world" to "hElLo WoRlD" (alternating case)
 print("\nQuestion 23: Convert 'hello world' to 'hElLo WoRlD' (alternating case)")
 # Your code here
-str = "hello world"
-
-
-
-
-
-
+s = "hello world"
+result = ""
+for i, ch in enumerate(s):
+    if i % 2 == 0:
+        result += ch.lower()
+    else:
+        result += ch.upper()
+print(result)
 
 # Question 24: Find all positions of 'a' in "banana"
 print("\nQuestion 24: Find all positions of 'a' in 'banana'")
 # Your code here
-str = "banana"
+str = "banana apple"
 Positions = []
 for i in range(0,len(str)):
     if str[i] == 'a':
@@ -299,10 +300,16 @@ print(common_char)
 # Question 35: Check if string is a valid phone number: "+1-555-123-4567"
 print("\nQuestion 35: Check if string is a valid phone number: '+1-555-123-4567'")
 # Your code here
-phone = "+1-555-123-4567"
+s = "+1-555-123-4567"
 
-
-
+parts = s.split("-")
+if s.startswith("+") and len(parts) == 4 and parts[0] == "+1" and \
+   parts[1].isdigit() and len(parts[1]) == 3 and \
+   parts[2].isdigit() and len(parts[2]) == 3 and \
+   parts[3].isdigit() and len(parts[3]) == 4:
+    print("Valid phone number")
+else:
+    print("Invalid phone number")
 
 # Question 36: Extract numbers from "abc123def456ghi789"
 print("\nQuestion 36: Extract numbers from 'abc123def456ghi789'")
@@ -316,8 +323,10 @@ for item in str:
 # Question 37: Convert "snake_case" to "camelCase"
 print("\nQuestion 37: Convert 'snake_case' to 'camelCase'")
 # Your code here
-
-
+s = "snake_case"
+parts = s.split("_")
+camel = parts[0] + "".join(word.capitalize() for word in parts[1:])
+print(camel)
 
 # Question 38: Check if string is a valid palindrome ignoring case: "A man a plan a canal Panama"
 print("\nQuestion 38: Check if string is a valid palindrome ignoring case: 'A man a plan a canal Panama'")
@@ -365,35 +374,123 @@ else:
 # Question 42: Convert "hello world" to Morse code
 print("\nQuestion 42: Convert 'hello world' to Morse code")
 # Your code here
+morse = {'a':'.-','b':'-...','c':'-.-.','d':'-..','e':'.','f':'..-.',
+         'g':'--.','h':'....','i':'..','j':'.---','k':'-.-','l':'.-..',
+         'm':'--','n':'-.','o':'---','p':'.--.','q':'--.-','r':'.-.',
+         's':'...','t':'-','u':'..-','v':'...-','w':'.--','x':'-..-',
+         'y':'-.--','z':'--..',' ':'/'}
+
+s = "hello world"
+print(" ".join(morse[ch] for ch in s.lower()))
 
 # Question 43: Find the longest common substring between "programming" and "grammar"
 print("\nQuestion 43: Find the longest common substring between 'programming' and 'grammar'")
 # Your code here
+s1 = "programming"
+s2 = "grammar"
+longest = ""
+
+for i in range(len(s1)):
+    for j in range(i+1, len(s1)+1):
+        sub = s1[i:j]
+        if sub in s2 and len(sub) > len(longest):
+            longest = sub
+
+print(longest)
 
 # Question 44: Check if string is a valid URL: "https://www.google.com"
 print("\nQuestion 44: Check if string is a valid URL: 'https://www.google.com'")
 # Your code here
+s = "https://www.google.com"
+if s.startswith("http://") or s.startswith("https://"):
+    print("Valid URL")
+else:
+    print("Invalid URL")
 
 # Question 45: Extract all words with length > 5 from "Python programming is amazing and powerful"
 print("\nQuestion 45: Extract all words with length > 5 from 'Python programming is amazing and powerful'")
 # Your code here
+s = "Python programming is amazing and powerful"
+words = s.split()
+result = []
+for word in words:
+    if len(word) > 5:
+        result.append(word)
+print(result)
 
 # Question 46: Convert "hello world" to Pig Latin
 print("\nQuestion 46: Convert 'hello world' to Pig Latin")
 # Your code here
+s = "hello world"
+words = s.split()
+result = []
+
+for word in words:
+    pig_word = word[1:] + word[0] + "ay"
+    result.append(pig_word)
+
+print(" ".join(result))
 
 # Question 47: Check if string is a valid IPv4 address: "192.168.1.1"
 print("\nQuestion 47: Check if string is a valid IPv4 address: '192.168.1.1'")
 # Your code here
+s = "192.168.1.1"
+parts = s.split(".")
+
+if len(parts) == 4:
+    valid = True
+    for part in parts:
+        if not part.isdigit() or int(part) < 0 or int(part) > 255:
+            valid = False
+            break
+    if valid:
+        print("Valid IPv4 address")
+    else:
+        print("Invalid IPv4 address")
+else:
+    print("Invalid IPv4 address")
 
 # Question 48: Find all substrings of "abc"
 print("\nQuestion 48: Find all substrings of 'abc'")
 # Your code here
+s = "abc"
+result = []
+for start in range(len(s)):
+    for end in range(start + 1, len(s) + 1):
+        result.append(s[start:end])
+print(result)
 
 # Question 49: Convert "hello world" to ROT13 encoding
 print("\nQuestion 49: Convert 'hello world' to ROT13 encoding")
 # Your code here
+s = "hello world"
+result = ""
+
+for ch in s:
+    if ch.isalpha():
+        base = 'a' if ch.islower() else 'A'
+        result += chr((ord(ch) - ord(base) + 13) % 26 + ord(base))
+    else:
+        result += ch
+
+print(result)
 
 # Question 50: Check if string is a valid credit card number: "4532015112830366"
 print("\nQuestion 50: Check if string is a valid credit card number: '4532015112830366'")
 # Your code here 
+s = "4532015112830366"
+total = 0
+reverse = s[::-1]
+
+for i in range(len(reverse)):
+    digit = int(reverse[i])
+    if i % 2 == 1:
+        digit *= 2
+        if digit > 9:
+            digit -= 9
+    total += digit
+
+if total % 10 == 0 and s.isdigit():
+    print("Valid credit card number")
+else:
+    print("Invalid credit card number")

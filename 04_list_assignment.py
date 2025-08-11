@@ -358,18 +358,26 @@ print(results)
 # Question 37: Create a list of lambda functions: [lambda x: x*2, lambda x: x**2, lambda x: x+1]
 print("\nQuestion 37: Create a list of lambda functions: [lambda x: x*2, lambda x: x**2, lambda x: x+1]")
 # Your code here
+funcs = [lambda x: x*2, lambda x: x**2, lambda x: x+1]
 
 # Question 38: Apply each lambda function to 5
 print("\nQuestion 38: Apply each lambda function to 5")
 # Your code here
-
+funcs = [lambda x: x*2, lambda x: x**2, lambda x: x+1]
+for f in funcs:
+    print(f(5))
 # Question 39: Create a list of classes: [list, dict, set, tuple]
 print("\nQuestion 39: Create a list of classes: [list, dict, set, tuple]")
 # Your code here
-
+classes = [list, dict, set, tuple]
 # Question 40: Create instances of each class in list
 print("\nQuestion 40: Create instances of each class in list")
 # Your code here
+classes = [list, dict, set, tuple]
+instances = [cls for cls in classes]
+
+for instance in instances:
+    print(instance)
 
 # Question 41: Create a list of None values: [None, None, None, None]
 print("\nQuestion 41: Create a list of None values: [None, None, None, None]")
@@ -423,14 +431,21 @@ print("\nQuestion 48: Convert each generator to list")
 # Your code here
 generators = [(x for x in range(3)), (x for x in range(5))]
 
-list_of_lists = [list(gen) for gen in generators]
-
-print(list_of_lists)
+for g in generators:
+    result = []
+    for item in g:
+        result.append(item)
+    print(result)
 
 # Question 49: Create a list of iterators: [iter([1, 2, 3]), iter([4, 5, 6])]
 print("\nQuestion 49: Create a list of iterators: [iter([1, 2, 3]), iter([4, 5, 6])]")
 # Your code here
-
+iterators = [iter([1, 2, 3]), iter([4, 5, 6])]
 # Question 50: Extract all elements from each iterator
 print("\nQuestion 50: Extract all elements from each iterator")
 # Your code here 
+for it in iterators:
+    elements = []
+    for item in it:
+        elements.append(item)
+    print(elements)

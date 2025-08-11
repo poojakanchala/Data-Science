@@ -37,7 +37,8 @@ print(a%b)
 print("\nQuestion 3: Calculate the square of 25")
 # Your code here
 n = 25
-print(n*n)
+print(n**2)
+
 # Question 4: Find the cube root of 125
 print("\nQuestion 4: Find the cube root of 125")
 # Your code here

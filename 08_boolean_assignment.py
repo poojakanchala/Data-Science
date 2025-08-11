@@ -46,7 +46,7 @@ print(100>50 or 100<25)
 # Question 6: Check if 0 is falsy in Python
 print("\nQuestion 6: Check if 0 is falsy in Python")
 # Your code here
-print(bool(''))
+print(bool(0))
 
 # Question 7: Check if empty string "" is falsy in Python
 print("\nQuestion 7: Check if empty string '' is falsy in Python")
