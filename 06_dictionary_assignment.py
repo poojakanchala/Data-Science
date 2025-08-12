@@ -25,8 +25,8 @@ print(dict1)
 # Question 2: Add a new key-value pair to dictionary {'a': 1, 'b': 2, 'c': 3}
 print("\nQuestion 2: Add a new key-value pair to dictionary {'a': 1, 'b': 2, 'c': 3}")
 # Your code here
-dict1 = {"pooja": 21, "pooja1":22}
-dict1["pooja2"] = 23
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+dict1["d"] = 23
 print(dict1)
 # Question 3: Get all keys from dictionary {'name': 'John', 'age': 25, 'city': 'New York'}
 print("\nQuestion 3: Get all keys from dictionary {'name': 'John', 'age': 25, 'city': 'New York'}")
